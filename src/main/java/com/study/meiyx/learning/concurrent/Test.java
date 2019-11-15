@@ -1,8 +1,8 @@
 package com.study.meiyx.learning.concurrent;
 
 public class Test {
-    private static long count = 0;
-    public void add10K() {
+    private  static long count = 0;
+    public synchronized  void add10K() {
         long idx = 0;
         while (idx++ < 10000L) {
             count += 1;
@@ -33,7 +33,7 @@ public class Test {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return count;
+                                                                                                                                                                                                                                                                                                                                                                                      return count;
     }
 
     public static void main(String[] args) {
