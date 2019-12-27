@@ -1,4 +1,4 @@
-package com.study.meiyx.learning.concurrent;
+package com.study.meiyx.learning.concurrent.countdown;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

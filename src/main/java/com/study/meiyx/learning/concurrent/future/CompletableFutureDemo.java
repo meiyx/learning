@@ -3,7 +3,9 @@ package com.study.meiyx.learning.concurrent.future;
 import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 public class CompletableFutureDemo {
     //and 聚合关系
@@ -14,7 +16,6 @@ public class CompletableFutureDemo {
         CompletableFuture<Void> f1 = CompletableFuture.runAsync(() -> {
             System.out.println("T1: 洗水壶...");
             sleep(1, TimeUnit.SECONDS);
-
             System.out.println("T1: 烧开水...");
             sleep(15, TimeUnit.SECONDS);
         });
@@ -22,10 +23,8 @@ public class CompletableFutureDemo {
         CompletableFuture<String> f2 = CompletableFuture.supplyAsync(() -> {
             System.out.println("T2: 洗茶壶...");
             sleep(1, TimeUnit.SECONDS);
-
             System.out.println("T2: 洗茶杯...");
             sleep(2, TimeUnit.SECONDS);
-
             System.out.println("T2: 拿茶叶...");
             sleep(1, TimeUnit.SECONDS);
             return " 龙井 ";
@@ -38,8 +37,6 @@ public class CompletableFutureDemo {
         });
         // 等待任务 3 执行结果
         System.out.println(f3.join());
-
-
     }
 
     void sleep(int t, TimeUnit u) {

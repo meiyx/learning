@@ -53,9 +53,9 @@ public class CompletionStageDemo  extends BaseDemo {
 
     @Test
     public void testException() {
-
         CompletableFuture<Integer> f0 =
-                CompletableFuture.supplyAsync(() -> 7 / 0)
+                CompletableFuture.supplyAsync(
+                        () -> 7 / 0)
                         .thenApply(r -> r * 10)
                         .exceptionally(e -> 0);
         System.out.println(f0.join());
